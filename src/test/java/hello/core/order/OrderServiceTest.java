@@ -31,4 +31,14 @@ public class OrderServiceTest {
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
     }
 
+    // OrderServiceImpl의 필드 주입 부분 설명
+    //      필드 주입 사용 시 원하는 레파지토리를 설정 할 수 없음
+    // 스프링 컨테이너 띄워야함
+    @Test
+    void fileInjectionTest() {
+//        OrderServiceImpl orderService1 = new OrderServiceImpl();
+        // 필드 주입을 하지 못해서 필드 변수를 사용 할 때 NullPointException 에러 발생
+        // orderService1.createOrder(1L, "itemB", 30000);
+    }
+
 }

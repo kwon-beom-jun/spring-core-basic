@@ -22,6 +22,8 @@ import org.springframework.context.annotation.Configuration;
  */
 //  TODO : 컨테이너 생성 순서
 /**      스프링 리더클래스로 설정 정보 읽기 → 빈 메타정보 생성 → 메타정보를 바탕으로 컨테이너 생성
+ *       스프링 빈 등록 → 의존 관계 주입( ex - Autowired등 확인하고 주입 )
+ *                      물론 생성자 주입(Autowired)은 생성 될 때 필요해서 빈 등록시 주입
  *
  */
 @Configuration
@@ -67,7 +69,8 @@ public class AppConfig {
     @Bean
     public OrderService orderService() {
         System.out.println("call AppConfig.orderService");
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return new OrderServiceImpl(memberRepository(), discountPolicy());
+        return null;
     }
 
     @Bean
