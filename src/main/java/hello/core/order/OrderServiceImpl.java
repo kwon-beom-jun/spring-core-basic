@@ -13,7 +13,7 @@ public class OrderServiceImpl implements OrderService {
 //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
-//    TODO : 해당 @Autowired는 해당 클래스가 SpringBean에 등록되어 있어야만 사용 할 수 있다.
+//    TODO : 해당 @Autowired는 해당 클래스가 SpringBean에 등록되어 있어야만 사용 할 수 있다
 //          만약 OrderServiceImpl이 SpringBean에 등록되어있지 않다면 내부에서 @Autowired는 아무 기능도 동작하지 않는다
 
 //    TODO : 생성자 주입
@@ -23,13 +23,13 @@ public class OrderServiceImpl implements OrderService {
  *
  *      ※ 생성자가 하나만 있으면 @Autowired 생략 가능!!
  */
-//    private final MemberRepository memberRepository;
-//    private final DiscountPolicy discountPolicy;//
-//    @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;//
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
 //    TODO : 수정자 주입(Setter 주입)
 /**     선택, 변경 가능성이 있는 의존관계에 사용
@@ -74,13 +74,13 @@ public class OrderServiceImpl implements OrderService {
  *          2. 일반적으로 잘 사용하지 않는다.
  *      ※ 일반적으로 생성자 주입이나 수정자 주입에서 다 생성하여 사용하기 때문에 사용할 일이 거의 없다
  */
-    private MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy;//
-    @Autowired
-    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    private MemberRepository memberRepository;
+//    private DiscountPolicy discountPolicy;//
+//    @Autowired
+//    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
 
     @Override
