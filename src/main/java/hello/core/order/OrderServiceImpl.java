@@ -3,10 +3,15 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+// TODO : RequiredArgsConstructor 이란?
+//      필드에 final로 선언되어있는 값들을 포함하여 생성자를 만들어줌
+//      컴파일 시점에 생성자 코드를 자동으로 생성
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -20,16 +25,17 @@ public class OrderServiceImpl implements OrderService {
 /**     생성자를 통해서 의존 관계를 주입
  *      불변, 필수 의존 관계에 사용
  *      생성자 호출시점에 딱 1번만 호출되는 것이 보장
+ *      주입하는것을 실수 할 수 있으니 final을 붙여서 넣지 않았을때 컴파일 오류가 발생하도록 한다
  *
  *      ※ 생성자가 하나만 있으면 @Autowired 생략 가능!!
  */
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;//
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
 //    TODO : 수정자 주입(Setter 주입)
 /**     선택, 변경 가능성이 있는 의존관계에 사용
