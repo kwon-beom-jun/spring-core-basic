@@ -32,6 +32,7 @@ public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;//
 
+//    @Autowired & 하나만 있으면 없어도 가능
 //    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 //        this.memberRepository = memberRepository;
 //        this.discountPolicy = discountPolicy;
