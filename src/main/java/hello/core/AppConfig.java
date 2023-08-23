@@ -44,7 +44,20 @@ public class AppConfig {
      *      public MemberRepository memberRepository() {
      *          return new MemoryMemberRepository();
      *      }
-     *      둘다 new 해서 생성(순수 자바코드로 인스턴스 생성이라 싱클톤이 깨짐   */
+     *      둘다 new 해서 생성(순수 자바코드로 인스턴스 생성이라 싱클톤이 깨짐
+
+     * ※ 차이점
+            return new MemberServiceImpl(new MemoryMemberRepository());
+            이 코드에서는 MemberServiceImpl을 생성할 때마다 새로운 MemoryMemberRepository 인스턴스가 생성됩니다.
+            따라서 이 방식을 사용하면 MemberServiceImpl이 여러 번 생성될 경우
+            각각의 MemberServiceImpl 인스턴스가 서로 다른 MemoryMemberRepository 인스턴스를 참조하게 됩니다.
+            
+            return new MemberServiceImpl(memberRepository());
+            @Configuration 클래스 내에서 다른 @Bean 메소드를 호출하는 경우,
+            Spring은 이전에 생성된 빈 인스턴스를 재사용합니다. 
+            따라서 이 코드에서는 MemberServiceImpl을 생성할 때마다
+            동일한 MemoryMemberRepository 인스턴스가 재사용됩니다.
+     */
 
     /**
      * TODO : ConfigurationSingletonTest.java의 configurationDeep() 메소드에 정답이 있음
