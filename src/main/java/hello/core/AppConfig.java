@@ -35,11 +35,16 @@ public class AppConfig {
 //    public MemberService memberService(){ return new MemberServiceImpl(memberRepository()); }
 
     /**
-     * FIXME : 궁금점
-     *      @Bean memberService -> new MemoryMemberRepository() 생성
-     *      @Bean orderService -> new MemoryMemberRepository() 생성
-     *      둘다 new 해서 생성(순수 자바코드로 인스턴스 생성이라 싱클톤이 깨지는것이 아닌가?   */
-    // TEST CASE : ConfigurationSingletonTest
+     * ※ 에러발생
+     *      @Bean
+     *      public MemberService memberService() {
+     *          return new MemberServiceImpl(new MemoryMemberRepository());
+     *      }
+     *      @Bean
+     *      public MemberRepository memberRepository() {
+     *          return new MemoryMemberRepository();
+     *      }
+     *      둘다 new 해서 생성(순수 자바코드로 인스턴스 생성이라 싱클톤이 깨짐   */
 
     /**
      * TODO : ConfigurationSingletonTest.java의 configurationDeep() 메소드에 정답이 있음
