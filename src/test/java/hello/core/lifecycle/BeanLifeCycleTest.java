@@ -1,7 +1,6 @@
 package hello.core.lifecycle;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  *      스프링 빈은 객체를 생성하고, 의존관계 주입이 다 끝난 다음에야 필요한 데이터를 사용 할 수 있는 준비가 완료
  *      따라서 초기화 작업은 의존관계 주입이 모두 완료되고 난 다음에 호출해야 한다.
  *      그런데 개발자가 의존관계 주입이 모두 완료된 시점을 어떻게 알 수 있을까?
- *      * 초기화 : 객체를 생성하는 작업이 아닌 객체 안에 필요한 값들의 연결이 다 되어있고 외부랑 연결, 객체가 처음 일을하는 시점
+ *      * 초기화 : 객체를 생성하는 작업이 아닌 객체 안에 필요한 값들의 연결이 다 되어있는 상태에서 외부랑 연결 및 객체가 일을 처음하는 시점
  *
  *      ※ 스프링은 의존관계 주입이 완료되면 스프링 빈에게 콜백 메서드를 통해서 초기화 시점을 알려주는 다양한 기능을 제공한다.
  *      또한 스프링은 스프링 컨테이너가 종료되기 직전에 소멸 콜백(일반적인 싱글톤, 다른 스코프는 또 다른 콜백을 받음)을 준다
@@ -63,16 +62,20 @@ public class BeanLifeCycleTest {
         /** AnnotationConfigApplicationContext의 조상이 ConfigurableApplicationContext이다.
          *  AnnotationConfigApplicationContext ->...->...-> ConfigurableApplicationContext */
         ConfigurableApplicationContext ac = new AnnotationConfigApplicationContext(LifeCycleConfig.class);
-        NetworkClient client = ac.getBean(NetworkClient.class);
+        NetworkClient_3 client = ac.getBean(NetworkClient_3.class);
         ac.close(); // ApplicationContext 기본 인터페이스에서 지원하지 않음
     }
 
     @Configuration
     static class LifeCycleConfig {
 
-        @Bean
-        public NetworkClient networkClient() {
-            NetworkClient networkClient = new NetworkClient();
+        /**
+         * 추론 기능은 destroyMethod만 가능!! (init X)
+         */
+        // destroyMethod의 close는 없어도 추론기능으로 사용됨
+        @Bean//(initMethod = "init" /*, destroyMethod = "close"*/ )
+        public NetworkClient_3 networkClient_3() {
+            NetworkClient_3 networkClient = new NetworkClient_3();
             networkClient.setUrl("http://hello-spring.dev");
             return networkClient;
         }
