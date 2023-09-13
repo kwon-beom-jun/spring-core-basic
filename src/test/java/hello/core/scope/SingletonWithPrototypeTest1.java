@@ -26,7 +26,8 @@ import javax.annotation.PreDestroy;
  * <br>     무식한 방법으로는
  * <br>         @Autowired ApplicationContext context을 설정
  * <br>         loginc() 함수를 호출때마다 context.getBean을 이용하여
- * <br>         PrototypeBean을 스프링이 요청 때마다 주입하는 방법이 있지만 좋은 코드가 아님
+ * <br>         PrototypeBean을 스프링이 요청 때마다 주입하는 방법이 있지만 스프링 컨테이너에 종속 및 단위테스트가 어려워짐
+ * <br>         * 이 방법을 Dependency Lookup(DL) 의존관게 조회(탐색) 이라고 한다.
  * <br>
  */
 public class SingletonWithPrototypeTest1 {
