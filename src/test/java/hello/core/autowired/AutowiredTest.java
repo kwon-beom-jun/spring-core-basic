@@ -8,11 +8,12 @@ import org.springframework.lang.Nullable;
 
 import java.util.Optional;
 
-// TODO : 옵션 처리 ( @Autowired 옵션 및 @Nullabel, Optional )
-/**     주입할 스프링 빈이 없어도 동작해야 할 때
- *      @Autowired는 디폴트로 required 옵션이 ture로 설정되어 있어서 자동 주입 대상이 없으면 오류가 발생
- *      @Nullable, Optional은 스프링 전반에 걸쳐서 지원
- *          - ex) 생성자 자동 주입에서 특정 필드에만 사용해도 됨
+/**
+ * <br> TODO : 옵션 처리 ( @Autowired 옵션 및 @Nullabel, Optional )
+ * <br>      주입할 스프링 빈이 없어도 동작해야 할 때
+ * <br>      @Autowired는 디폴트로 required 옵션이 ture로 설정되어 있어서 자동 주입 대상이 없으면 오류가 발생
+ * <br>      @Nullable, Optional은 스프링 전반에 걸쳐서 지원
+ * <br>          - ex) 생성자 자동 주입에서 특정 필드에만 사용해도 됨
  */
 public class AutowiredTest {
 

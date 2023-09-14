@@ -36,10 +36,8 @@ public class ConfigurationSingletonTest {
         Assertions.assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
     }
 
-    /**
-     * TODO : AppConfig.java에서 일반 java의 new 메소드들이 있어도 싱글톤으로 유지되는 이유
-     *        @Configuration 사용 이유
-     */
+     // TODO : AppConfig.java에서 일반 java의 new 메소드들이 있어도 싱글톤으로 유지되는 이유
+     //        @Configuration 사용 이유
     @Test
     void configurationDeep() {
         // AnnotationConfigApplicationContext 사용하면 Appconfig도 Bean으로 등록된다.

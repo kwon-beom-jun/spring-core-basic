@@ -16,9 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
 /**
- * TODO : Spring 컨테이너 빈 조회 방법-2
- *        스프링 빈 조회 시 부모 타입으로 조회하면, 자식 타입도 함께 조회 ( 컨테이너에 등록이랑은 다름 )
- *        그래서 모든 자바 객체의 최고 부모인 'Object' 타입으로 조회하면, 모든 스프링 빈을 조회 ( Spring 관련 내부 Bean들도 전부 )
+ * <br> TODO : Spring 컨테이너 빈 조회 방법-2
+ * <br>        스프링 빈 조회 시 부모 타입으로 조회하면, 자식 타입도 함께 조회 ( 컨테이너에 등록이랑은 다름 )
+ * <br>        그래서 모든 자바 객체의 최고 부모인 'Object' 타입으로 조회하면, 모든 스프링 빈을 조회 ( Spring 관련 내부 Bean들도 전부 )
  */
 public class ApplicationContextExtendsFindTest {
 

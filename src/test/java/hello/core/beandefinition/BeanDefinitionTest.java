@@ -8,18 +8,18 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-// TODO : 스프링 컨테이너 생성시, BeanDefinition 의미, 빈 등록 방법 등 설명
 /**
- * BeanDefinition : 빈 설정 메타정보 @Bean, <bean>당 각각 하나씩 메타정보 생성
- *                  스프링 컨테이너는 이 메타정보를 기반으로 스프링이 빈을 생성
- * 설정정보들을 AnnotatedBeanDefinitionReader, XMLBeanDefinitionReader, XxxBeanDefinitionReader 리더를 사용하여 BeanDefinition을 생성
- *
- * BeanDefinition을 등록할 때는 직접적으로 Bean을 등록하는 방법과 FactoryBean(== Java Config(AppConfig.class))을 이용하여 등록하는 방법이 있다.
- * FactoryBean을 이용하면 FactoryBean라는것을 이용해서 외부에서 등록하여 'class [null]' 등록되고 대신에 factoryBeanName과 foactoryMethodName이 등록된다.
- *      beanDefinition = Root bean: class [null]; scope=;
- *          abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0;
- *          autowireCandidate=true; primary=false; factoryBeanName=appConfig;
- *          factoryMethodName=memberService; initMethodName=null; destroyMethodName=(inferred); defined in hello.core.AppConfig
+ * <br> TODO : 스프링 컨테이너 생성시, BeanDefinition 의미, 빈 등록 방법 등 설명
+ * <br>      BeanDefinition : 빈 설정 메타정보 @Bean, <bean>당 각각 하나씩 메타정보 생성
+ * <br>                  스프링 컨테이너는 이 메타정보를 기반으로 스프링이 빈을 생성
+ * <br>      설정정보들을 AnnotatedBeanDefinitionReader, XMLBeanDefinitionReader, XxxBeanDefinitionReader 리더를 사용하여 BeanDefinition을 생성
+ * <br>
+ * <br>      BeanDefinition을 등록할 때는 직접적으로 Bean을 등록하는 방법과 FactoryBean(== Java Config(AppConfig.class))을 이용하여 등록하는 방법이 있다.
+ * <br>      FactoryBean을 이용하면 FactoryBean라는것을 이용해서 외부에서 등록하여 'class [null]' 등록되고 대신에 factoryBeanName과 foactoryMethodName이 등록된다.
+ * <br>          beanDefinition = Root bean: class [null]; scope=;
+ * <br>          abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0;
+ * <br>          autowireCandidate=true; primary=false; factoryBeanName=appConfig;
+ * <br>          factoryMethodName=memberService; initMethodName=null; destroyMethodName=(inferred); defined in hello.core.AppConfig
  */
 public class BeanDefinitionTest {
 
