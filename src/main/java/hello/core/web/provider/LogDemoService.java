@@ -1,4 +1,4 @@
-package hello.core.web;
+package hello.core.web.provider;
 
 import hello.core.common.MyLogger;
 import lombok.RequiredArgsConstructor;
